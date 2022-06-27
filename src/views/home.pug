@@ -1,4 +1,14 @@
-extends base.pug
+extends base
+include mixins/video
+
+block game
+        nav
+            ul
+                li
+                    a(href="/videos/upload") Upload Video
 
 block content
-    h1 Home!
+    each potato in videos
+        +video(potato)
+    else
+        li Sorry nothing found
